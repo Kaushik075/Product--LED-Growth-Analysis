@@ -18,6 +18,19 @@ This project demonstrates a complete, production-grade analytics pipeline that t
 🐍 Python Analysis: End-to-end data pipeline with chi-square testing and scenario modeling
 
 
+
+
+🔍 Business Problem
+---
+Product-led growth platforms struggle with understanding user progression through the funnel and identifying where interventions create the most impact. This project addresses three critical questions:
+
+Where do users drop off? Analysis reveals 50% activation-to-feature adoption drop-off, indicating a severe engagement issue that costs the company ~$200K annually in potential revenue.
+
+Which interventions work best? Three A/B tests were designed to address different funnel stages: onboarding flow (+31% lift), pricing strategy (+47% lift), and feature adoption (+87% lift), all achieving statistical significance.
+
+Is deployment safe? Weekly cohort analysis confirms metrics are stable (variance < 1%), validating that observed improvements are genuine and not noise.
+
+
 Insights Identified
 ---
 
@@ -36,17 +49,6 @@ User behavior is stable across 8 weeks, validating A/B results are genuine and s
 Mobile 26% Better Than Desktop, Direct 27% Better Than Paid: 
 Segment gaps reveal optimization opportunities in device UX and paid targeting without major product changes.
 
-
-
-🔍 Business Problem
----
-Product-led growth platforms struggle with understanding user progression through the funnel and identifying where interventions create the most impact. This project addresses three critical questions:
-
-Where do users drop off? Analysis reveals 50% activation-to-feature adoption drop-off, indicating a severe engagement issue that costs the company ~$200K annually in potential revenue.
-
-Which interventions work best? Three A/B tests were designed to address different funnel stages: onboarding flow (+31% lift), pricing strategy (+47% lift), and feature adoption (+87% lift), all achieving statistical significance.
-
-Is deployment safe? Weekly cohort analysis confirms metrics are stable (variance < 1%), validating that observed improvements are genuine and not noise.
 
 Methodology
 ---
