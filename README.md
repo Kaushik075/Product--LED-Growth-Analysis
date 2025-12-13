@@ -2,10 +2,12 @@
 Product--LED-Growth-Analysis
 A complete Analytics system demonstrating end-to-end SaaS User Journey &amp; Experimentation
 
-## 📋 Executive Summary
+ Executive Summary
+ ---
 This project demonstrates a complete, production-grade analytics pipeline that transforms raw user data into actionable business intelligence. Starting from a normalized MySQL database with 10,000 users and 51,000+ events, the analysis identifies a critical feature adoption bottleneck and quantifies a $570K/year revenue opportunity through A/B testing and statistical validation.
 
-## Key Deliverables
+ Key Deliverables
+ ---
 
 📊 EDA Report: PLG_Analytics_Report.pdf - Comprehensive exploratory data analysis with statistical findings
 
@@ -16,7 +18,7 @@ This project demonstrates a complete, production-grade analytics pipeline that t
 🐍 Python Analysis: End-to-end data pipeline with chi-square testing and scenario modeling
 
 
-## Quick Insights Identified
+ Quick Insights Identified
 ---
 Feature Adoption Gap: 50% of activated users don't use features (critical bottleneck identified)
 
