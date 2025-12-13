@@ -62,5 +62,5 @@ Results & Key Findings
 --
 Funnel Performance Analysis
 The complete funnel shows healthy top-of-funnel (70% activation, industry average) but severe mid-funnel friction. Feature adoption sits at just 35% of signups (vs. expected 50%+), representing the primary bottleneck. This 50% activation-to-feature drop-off translates directly to revenue loss: if adoption improved to 60%, an additional $165K would be generated annually based on current cohort data.
-
+<img width="739" height="305" alt="Image" src="https://github.com/user-attachments/assets/615c8e32-6e89-4fe2-ba61-f21cf741f3c8" />
 
