@@ -76,5 +76,13 @@ A/B Test Results with Statistical Validation
 
 All three treatments showed statistically significant improvements. The Feature Adoption test using an in-app tooltip guide emerged as the clear winner: 28% conversion vs. 15% control, a +87% relative lift. This is particularly powerful because tooltip implementation requires minimal engineering effort (UI change only) and delivers the highest business impact.
 
+<img width="734" height="327" alt="Image" src="https://github.com/user-attachments/assets/e0bc6a42-afe3-4ca8-8d11-b4133804781d" />
 
 
+Cohort Stability & Risk Assessment
+-
+Weekly cohorts from August through November show consistent metrics (±0.09% activation variance, ±0.15% feature adoption variance), confirming that conversion patterns are stable and not driven by seasonal or temporal anomalies. This low variance validates deployment safety: improvements observed in A/B tests reflect genuine behavioral changes, not noise.
+
+Device & Segment Performance Insights
+-
+Mobile users outperform desktop (4.14% vs 3.28% conversion), while Direct acquisition channels show 27% higher conversion than Paid channels (4.32% vs 3.42%). These insights suggest prioritizing mobile experience optimization and investigating why Paid channels underperform relative to organic acquisition.
