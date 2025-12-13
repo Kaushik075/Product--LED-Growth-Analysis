@@ -94,8 +94,8 @@ Cohort Stability & Risk Assessment
 -
 Weekly cohorts from August through November show consistent metrics (±0.09% activation variance, ±0.15% feature adoption variance), confirming that conversion patterns are stable and not driven by seasonal or temporal anomalies. This low variance validates deployment safety: improvements observed in A/B tests reflect genuine behavioral changes, not noise.
 
-Device & Segment Performance Insights
--
+# Device & Segment Performance Insights
+
 Mobile users outperform desktop (4.14% vs 3.28% conversion), while Direct acquisition channels show 27% higher conversion than Paid channels (4.32% vs 3.42%). These insights suggest prioritizing mobile experience optimization and investigating why Paid channels underperform relative to organic acquisition.
 
 
