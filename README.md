@@ -22,21 +22,18 @@ Insights Identified
 ---
 
 50% Feature Adoption Bottleneck Worth $200K+:
-
 Half of activated users never use features, representing your largest revenue leakage opportunity.
 
 +87% Lift Solution Validated (p < 0.001):
-
 Tooltip guide test proves high-impact fix with 99.9% confidence, generating +$165.6K annually from simple UI change.
 
-$570K Combined Revenue Opportunity (87% Growth): Three interventions (tooltip, freemium, retargeting) transform revenue from $680K to $1.25M over 7 weeks.
+$570K Combined Revenue Opportunity (87% Growth):
+Three interventions (tooltip, freemium, retargeting) transform revenue from $680K to $1.25M over 7 weeks.
 
 <1% Cohort Variance Confirms Safe Deployment: 
-
 User behavior is stable across 8 weeks, validating A/B results are genuine and safe to deploy at scale.
 
 Mobile 26% Better Than Desktop, Direct 27% Better Than Paid: 
-
 Segment gaps reveal optimization opportunities in device UX and paid targeting without major product changes.
 
 
