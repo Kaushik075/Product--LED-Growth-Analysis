@@ -32,14 +32,16 @@ Is deployment safe? Weekly cohort analysis confirms metrics are stable (variance
 
 # images
 
-📊 DASHBOARD Overview 
+#  DASHBOARD Overview 
 
-# Funnel Conversion Analysis
+ Funnel Conversion Analysis
 Shows 10K users → 7K activated (70%) → 3.5K feature adoption (50% DROP-OFF) → 378 paid (3.8% conversion)
 
 Key Finding: Feature adoption is the bottleneck. Half of activated users never discover key features.
 
-# Experiments & Retention
+---
+
+ Experiments & Retention
 Your A/B tests show massive wins:
 
 Tooltip Guide: +87% lift ✅ Deploy (solves feature adoption gap)
@@ -50,7 +52,9 @@ Quick Start: +31% lift ✅ Deploy (improves onboarding)
 
 Validation: 99.8% cohort stability means these improvements will stick.
 
-# Strategic Insights
+---
+
+Strategic Insights
 The "exec summary" page with:
 
 Funnel health assessment (calculations shown)
