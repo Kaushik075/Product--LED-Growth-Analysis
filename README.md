@@ -70,3 +70,11 @@ The complete funnel shows healthy top-of-funnel (70% activation, industry averag
 
 <img width="739" height="305" alt="Image" src="https://github.com/user-attachments/assets/615c8e32-6e89-4fe2-ba61-f21cf741f3c8" />
 
+
+A/B Test Results with Statistical Validation
+--
+
+All three treatments showed statistically significant improvements. The Feature Adoption test using an in-app tooltip guide emerged as the clear winner: 28% conversion vs. 15% control, a +87% relative lift. This is particularly powerful because tooltip implementation requires minimal engineering effort (UI change only) and delivers the highest business impact.
+
+
+
