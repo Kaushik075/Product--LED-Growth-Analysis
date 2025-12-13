@@ -43,11 +43,11 @@ Is deployment safe? Weekly cohort analysis confirms metrics are stable (variance
 Methodology
 ---
 
-Phase 1: Data Generation & Infrastructure
+# Phase 1: Data Generation & Infrastructure
 
 The project begins with a 3NF normalized MySQL database designed to handle millions of records with proper relationships and constraints. Using Python and the Faker library, 10,000 realistic user profiles were generated across Organic, Paid, Referral, and Direct segments with device and platform distribution. Events were created to simulate realistic user journeys (51,231 total events) with probabilistic conversion rates at each funnel stage (signup→activation: 70%, activation→feature: 50%, feature→PQL: 40%, PQL→paid: 25%).
 
-Phase 2: Exploratory Data Analysis
+# Phase 2: Exploratory Data Analysis
 
 Pandas-based EDA examined user demographics, funnel progression, and temporal patterns. Each user segment was analyzed separately to identify performance differences (Direct segment showed 4.3% conversion vs 3.4% for Paid). Time-to-value metrics were calculated (1.1 days signup→activation, 11 days activation→PQL, 15 days PQL→paid), revealing that the activation bottleneck happens early when engagement barriers are highest.
 
@@ -55,11 +55,11 @@ Pandas-based EDA examined user demographics, funnel progression, and temporal pa
 
 Three concurrent tests were conducted on balanced samples (n=4,000 per variant). Chi-square tests confirmed statistical significance for all treatments (p < 0.001, 99.9% confidence level). The Feature Adoption test achieved the highest lift (+87%) using an in-app tooltip, demonstrating that simple, contextual guidance directly addresses the engagement gap identified in Phase 2.
 
-Phase 4: Power BI Visualization & Insights
+# Phase 4: Power BI Visualization & Insights
 
 A professional 3-page dashboard was built in Power BI to present findings: funnel visualization with drop-off indicators, A/B test comparison charts, and weekly cohort retention tracking. An insights bookmark synthesizes all analysis into 8 actionable boxes covering health assessment, statistical significance, revenue scenarios, and priority recommendations, making the findings accessible to both technical and non-technical stakeholders.
 
-Phase 5: Business Impact Modeling & Documentation
+# Phase 5: Business Impact Modeling & Documentation
 
 Three revenue scenarios were modeled based on test results: deploying the tooltip guide (low effort, +$165.6K/year), implementing freemium pricing (+$318.6K/year), or both (+$570K/year). Documentation ensures every number is traceable to its underlying calculation, supporting stakeholder confidence in deployment decisions.
 
