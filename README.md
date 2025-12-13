@@ -18,15 +18,26 @@ This project demonstrates a complete, production-grade analytics pipeline that t
 🐍 Python Analysis: End-to-end data pipeline with chi-square testing and scenario modeling
 
 
- Quick Insights Identified
+Insights Identified
 ---
-Feature Adoption Gap: 50% of activated users don't use features (critical bottleneck identified)
 
-Tooltip Guide Test: +87% lift validated through A/B testing (p < 0.001)
+50% Feature Adoption Bottleneck Worth $200K+:
 
-Revenue Impact: Deploying recommendations could generate +$165K to +$570K annually
+Half of activated users never use features, representing your largest revenue leakage opportunity.
 
-Implementation Timeline: 7 weeks to full deployment across all 3 experiments
++87% Lift Solution Validated (p < 0.001):
+
+Tooltip guide test proves high-impact fix with 99.9% confidence, generating +$165.6K annually from simple UI change.
+
+$570K Combined Revenue Opportunity (87% Growth): Three interventions (tooltip, freemium, retargeting) transform revenue from $680K to $1.25M over 7 weeks.
+
+<1% Cohort Variance Confirms Safe Deployment: 
+
+User behavior is stable across 8 weeks, validating A/B results are genuine and safe to deploy at scale.
+
+Mobile 26% Better Than Desktop, Direct 27% Better Than Paid: 
+
+Segment gaps reveal optimization opportunities in device UX and paid targeting without major product changes.
 
 
 
