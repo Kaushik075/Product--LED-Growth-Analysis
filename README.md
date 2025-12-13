@@ -1,6 +1,6 @@
 
-## Product--LED-Growth-Analysis
-## A complete Analytics system demonstrating end-to-end SaaS User Journey &amp; Experimentation
+## Product LED Growth Funnel Analysis- SaaS User Journey & Experimentation 
+
 
  Executive Summary
  ---
@@ -51,7 +51,7 @@ Phase 2: Exploratory Data Analysis
 
 Pandas-based EDA examined user demographics, funnel progression, and temporal patterns. Each user segment was analyzed separately to identify performance differences (Direct segment showed 4.3% conversion vs 3.4% for Paid). Time-to-value metrics were calculated (1.1 days signup→activation, 11 days activation→PQL, 15 days PQL→paid), revealing that the activation bottleneck happens early when engagement barriers are highest.
 
-Phase 3: A/B Testing & Statistical Validation
+# Phase 3: A/B Testing & Statistical Validation
 
 Three concurrent tests were conducted on balanced samples (n=4,000 per variant). Chi-square tests confirmed statistical significance for all treatments (p < 0.001, 99.9% confidence level). The Feature Adoption test achieved the highest lift (+87%) using an in-app tooltip, demonstrating that simple, contextual guidance directly addresses the engagement gap identified in Phase 2.
 
