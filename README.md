@@ -1,7 +1,13 @@
 ## Product LED Growth Funnel Analysis- SaaS User Journey & Experimentation
 
+
+## Executive Summary
+ 
+This project demonstrates a complete, production-grade analytics pipeline that transforms raw user data into actionable business intelligence. Starting from a normalized MySQL database with 10,000 users and 51,000+ events, the analysis identifies a critical feature adoption bottleneck and quantifies a $570K/year revenue opportunity through A/B testing and statistical validation.
+
 **Overview**
 ---
+
 **Users Analyzed:** 10,000 active users tracked across 8-week cohorts
 
 **Events Tracked:** 51,000+ events capturing user behavior across funnel
@@ -16,71 +22,6 @@
 
 **Data Confidence:** <1% weekly cohort variance across 8 weeks = 99.9% production confidence
 
----
-
-## Dashboard Pages##
-
-**Page 1: Funnel Conversion Analysis**
-Activation Flow: 10,000 → 7,030 (70.3% activation in 1.1 days)
-
-Feature Adoption: 3,515 users (50% bottleneck - critical insight)
-
-Active Users: 1,237 weekly active users (12.4% of cohort)
-
-PQL Stage: 378 product-qualified leads (3.8% of original)
-
-Paid Conversion: 100 customers (26.4% PQL-to-Paid closing rate)
-
-Waterfall Visualization: Shows exact drop-off points and optimization opportunities
-
-**Page 2: Experiments & Retention**
-A/B Test Results:
-
-✅ Tooltip Guide: +87% lift ($165.6K/yr) at p<0.001
-
-✅ Freemium Model: +47% lift ($318.6K/yr, 556 new customers)
-
-✅ Quick Start Onboarding: +31% lift ($204K/yr, minimal engineering)
-
-Weekly Cohort Retention: 8-week progression showing user lifecycle
-
-Statistical Rigor: All tests validated with <1% variance, 99.9% confidence
-
-**Page 3: Revenue & Business Impact**
-Revenue Baseline: $680K current annual revenue
-
-Projected Revenue: $1.25M with all three interventions
-
-Revenue Lift: $570K additional opportunity (87% growth)
-
-Deployment Timeline: 7-week phased rollout (20% → 50% → 100%)
-
-Payback Period: 2-4 weeks depending on implementation
-
----
-
-Product--LED-Growth-Analysis/
-├── README.md (this file)
-├── LICENSE (MIT)
-├── Database_Setup.sql ← Schema for user, event, and test data
-├── Queries.sql ← Complex SQL for funnel, cohort, A/B analysis
-│
-├── 📊 PLG_Funnel_Analysis_Dashboard.pbix ← Main Power BI file
-│
-├── 🐍 PLG_Analytics_EDA_v2.py ← Python data generation & analysis
-│
-├── 📋 PLG_Analytics_Report.pdf ← Executive summary with findings
-│
-├── 📄 PLG - MySQL Queries.pdf ← All SQL queries documented
-│
-└── 📚 Documentation/
-    └── [Additional guides if needed]
-
-
-
- Executive Summary
- ---
-This project demonstrates a complete, production-grade analytics pipeline that transforms raw user data into actionable business intelligence. Starting from a normalized MySQL database with 10,000 users and 51,000+ events, the analysis identifies a critical feature adoption bottleneck and quantifies a $570K/year revenue opportunity through A/B testing and statistical validation.
 
  Key Deliverables
  ---
@@ -106,56 +47,11 @@ Which interventions work best? Three A/B tests were designed to address differen
 
 Is deployment safe? Weekly cohort analysis confirms metrics are stable (variance < 1%), validating that observed improvements are genuine and not noise.
 
-<img width="1139" height="691" alt="Image" src="https://github.com/user-attachments/assets/a2bd9c2b-3c1a-4aee-8a69-4fb2bf275eeb" />
 
 
 
-#  DASHBOARD Overview 
 
 
- **Funnel Conversion Analysis:**
- 
-Shows 10K users → 7K activated (70%) → 3.5K feature adoption (50% DROP-OFF) → 378 paid (3.8% conversion)
-
-Key Finding: Feature adoption is the bottleneck. Half of activated users never discover key features.
-
----
-
- **Experiments & Retention:** 
-
-Tooltip Guide: +87% lift ✅ Deploy (solves feature adoption gap)
-
-Freemium Model: +47% lift ✅ Deploy (highest revenue impact)
-
-Quick Start: +31% lift ✅ Deploy (improves onboarding)
-
-Validation: 99.8% cohort stability means these improvements will stick.
-
-<img width="1150" height="689" alt="Image" src="https://github.com/user-attachments/assets/9a4f1ce5-67a9-4d16-bbc7-456d2bbc3e2d" />
-
----
-
-
-
-Insights Identified
----
-
-50% Feature Adoption Bottleneck Worth $200K+:
-Half of activated users never use features, representing your largest revenue leakage opportunity.
-
-+87% Lift Solution Validated (p < 0.001):
-Tooltip guide test proves high-impact fix with 99.9% confidence, generating +$165.6K annually from simple UI change.
-
-$570K Combined Revenue Opportunity (87% Growth):
-Three interventions (tooltip, freemium, retargeting) transform revenue from $680K to $1.25M over 7 weeks.
-
-<1% Cohort Variance Confirms Safe Deployment: 
-User behavior is stable across 8 weeks, validating A/B results are genuine and safe to deploy at scale.
-
-Mobile 26% Better Than Desktop, Direct 27% Better Than Paid: 
-Segment gaps reveal optimization opportunities in device UX and paid targeting without major product changes.
-
-<img width="1142" height="690" alt="Image" src="https://github.com/user-attachments/assets/22caf00b-0c32-4b5d-b6ca-3b303a9451a7" />
 
 
 Methodology
