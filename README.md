@@ -30,7 +30,9 @@ Which interventions work best? Three A/B tests were designed to address differen
 
 Is deployment safe? Weekly cohort analysis confirms metrics are stable (variance < 1%), validating that observed improvements are genuine and not noise.
 
-# images
+<img width="1139" height="691" alt="Image" src="https://github.com/user-attachments/assets/a2bd9c2b-3c1a-4aee-8a69-4fb2bf275eeb" />
+
+
 
 #  DASHBOARD Overview 
 
