@@ -24,8 +24,7 @@ This **Full Stack Analysis** project demonstrates a complete, production-grade a
 
 **Funnel Flow**
 
-<img width="540" height="696" alt="image" src="https://github.com/user-attachments/assets/128073d0-e03f-429b-a50a-025e8c38f1b3" />
-
+<img width="714" height="814" alt="image" src="https://github.com/user-attachments/assets/12eb5beb-4ea7-4395-8acc-0849646d1758" />
 
 
 
