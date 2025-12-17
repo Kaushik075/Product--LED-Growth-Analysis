@@ -88,6 +88,8 @@ User behavior is stable across 8 weeks, validating A/B results are genuine and s
 Mobile 26% Better Than Desktop, Direct 27% Better Than Paid: 
 Segment gaps reveal optimization opportunities in device UX and paid targeting without major product changes.
 
+<img width="1142" height="690" alt="Image" src="https://github.com/user-attachments/assets/22caf00b-0c32-4b5d-b6ca-3b303a9451a7" />
+
 
 Methodology
 ---
