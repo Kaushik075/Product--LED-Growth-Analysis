@@ -1,6 +1,6 @@
 ## Product LED Growth Funnel Analysis- SaaS User Journey & Experimentation
 
-**Quick Fact**
+**Overview**
 ---
 **Users Analyzed:** 10,000 active users tracked across 8-week cohorts
 
@@ -58,6 +58,24 @@ Deployment Timeline: 7-week phased rollout (20% → 50% → 100%)
 Payback Period: 2-4 weeks depending on implementation
 
 ---
+
+Product--LED-Growth-Analysis/
+├── README.md (this file)
+├── LICENSE (MIT)
+├── Database_Setup.sql ← Schema for user, event, and test data
+├── Queries.sql ← Complex SQL for funnel, cohort, A/B analysis
+│
+├── 📊 PLG_Funnel_Analysis_Dashboard.pbix ← Main Power BI file
+│
+├── 🐍 PLG_Analytics_EDA_v2.py ← Python data generation & analysis
+│
+├── 📋 PLG_Analytics_Report.pdf ← Executive summary with findings
+│
+├── 📄 PLG - MySQL Queries.pdf ← All SQL queries documented
+│
+└── 📚 Documentation/
+    └── [Additional guides if needed]
+
 
 
  Executive Summary
