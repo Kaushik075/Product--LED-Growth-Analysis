@@ -23,16 +23,19 @@ This project demonstrates a complete, production-grade analytics pipeline that t
 **Data Confidence:** <1% weekly cohort variance across 8 weeks = 99.9% production confidence
 
 
+<img width="1023" height="594" alt="Image" src="https://github.com/user-attachments/assets/f986dec2-be84-45a4-a44e-4356901c7658" />
+
+
  Key Deliverables
  ---
 
-📊 EDA Report: PLG_Analytics_Report.pdf - Comprehensive exploratory data analysis with statistical findings
+**EDA Report:** PLG_Analytics_Report.pdf - Comprehensive exploratory data analysis with statistical findings
 
-📋 SQL Queries: PLG_MySQL_Queries.pdf - 10 production-ready queries covering funnel, cohort, and revenue analysis
+**MySQL Queries:** PLG_MySQL_Queries.pdf - 10 production-ready queries covering funnel, cohort, and revenue analysis
 
-📈 Power BI Dashboard: 3-page interactive dashboard with automated insights and recommendations
+**Power BI Dashboard:** 3-page interactive dashboard with automated insights and recommendations
 
-🐍 Python Analysis: End-to-end data pipeline with chi-square testing and scenario modeling
+**Python Analysis:** End-to-end data pipeline with chi-square testing and scenario modeling
 
 
 
