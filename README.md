@@ -22,8 +22,9 @@ This **Full Stack Analysis** project demonstrates a complete, production-grade a
 
 **Data Confidence:** <1% weekly cohort variance across 8 weeks = 99.9% production confidence
 
+[SaaS User Funnel Conversion Flow.pdf](https://github.com/user-attachments/files/24205123/SaaS.User.Funnel.Conversion.Flow.pdf)
 
-<img width="1017" height="596" alt="Image" src="https://github.com/user-attachments/assets/36d78d2f-ddd6-42c7-a0bc-5dec4c709a40" />
+
 
  Key Deliverables
  ---
@@ -35,6 +36,7 @@ This **Full Stack Analysis** project demonstrates a complete, production-grade a
 **Power BI Dashboard:** 3-page interactive dashboard with automated insights and recommendations
 
 **Python Analysis:** End-to-end data pipeline with chi-square testing and scenario modeling
+
 
 
 
@@ -58,6 +60,9 @@ Is deployment safe? Weekly cohort analysis confirms metrics are stable (variance
 
 Methodology
 ---
+
+<img width="1017" height="596" alt="Image" src="https://github.com/user-attachments/assets/36d78d2f-ddd6-42c7-a0bc-5dec4c709a40" />
+
 
 # Phase 1: Data Generation & Infrastructure
 
