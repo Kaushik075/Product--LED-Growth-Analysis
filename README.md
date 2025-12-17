@@ -58,16 +58,6 @@ Validation: 99.8% cohort stability means these improvements will stick.
 
 ---
 
-**Strategic Insights :**
-
-Funnel health assessment (calculations shown)
-
-A/B test lift calculations (all p<0.001)
-
-Revenue impact analysis: +$165K-$570K/year depending on deployment
-
-Top 3 priority actions with ROI scores
-
 
 
 Insights Identified
