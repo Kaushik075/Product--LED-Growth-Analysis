@@ -23,8 +23,7 @@ This **Full Stack Analysis** project demonstrates a complete, production-grade a
 **Data Confidence:** <1% weekly cohort variance across 8 weeks = 99.9% production confidence
 
 
-<img width="1023" height="594" alt="Image" src="https://github.com/user-attachments/assets/f986dec2-be84-45a4-a44e-4356901c7658" />
-
+<img width="1017" height="596" alt="Image" src="https://github.com/user-attachments/assets/36d78d2f-ddd6-42c7-a0bc-5dec4c709a40" />
 
  Key Deliverables
  ---
