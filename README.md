@@ -22,7 +22,10 @@ This **Full Stack Analysis** project demonstrates a complete, production-grade a
 
 **Data Confidence:** <1% weekly cohort variance across 8 weeks = 99.9% production confidence
 
-[SaaS User Funnel Conversion Flow.pdf](https://github.com/user-attachments/files/24205123/SaaS.User.Funnel.Conversion.Flow.pdf)
+**Funnel Flow**
+
+<img width="540" height="696" alt="image" src="https://github.com/user-attachments/assets/128073d0-e03f-429b-a50a-025e8c38f1b3" />
+
 
 
 
