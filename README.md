@@ -1,5 +1,6 @@
 ## Product LED Growth Funnel Analysis- SaaS User Journey & Experimentation
 
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/b0b4c635-2223-4fd5-8bd6-795fcd75f929" />
 
 ## Executive Summary
  
