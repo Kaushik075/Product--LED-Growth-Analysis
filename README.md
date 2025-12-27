@@ -145,3 +145,6 @@ Test all interventions on 20% user segment first to validate production results 
 
 Exploratory Data Analysis - Report
 
+
+
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/904cb078-7a6c-43ce-9fbb-62d76de58b01" />
