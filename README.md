@@ -121,6 +121,9 @@ Mobile users outperform desktop (4.14% vs 3.28% conversion), while Direct acquis
 <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/560abeba-085d-4517-9e08-4ac0115242a5" />
 
 
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/bab65f79-8d94-437b-92a9-79163e824c4f" />
+
+
 
 MAJOR RECOMMENDATIONS
 -
