@@ -112,8 +112,13 @@ Device & Segment Performance Insights
 -
 Mobile users outperform desktop (4.14% vs 3.28% conversion), while Direct acquisition channels show 27% higher conversion than Paid channels (4.32% vs 3.42%). These insights suggest prioritizing mobile experience optimization and investigating why Paid channels underperform relative to organic acquisition.
 
+---
+
+
 <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/30c6c19c-465b-4a90-b984-c7ae01ccc558" />
 
+
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/560abeba-085d-4517-9e08-4ac0115242a5" />
 
 
 
