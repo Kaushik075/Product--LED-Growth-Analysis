@@ -25,11 +25,6 @@ This **Full Stack Analysis** project demonstrates a complete, production-grade a
 
 <img width="881" height="562" alt="Image" src="https://github.com/user-attachments/assets/5994aa6e-bb30-4dd6-9de9-e580baa919cf" />
 
-**Funnel Flow**
-
-<img width="714" height="814" alt="image" src="https://github.com/user-attachments/assets/12eb5beb-4ea7-4395-8acc-0849646d1758" />
-
-
 
  Key Deliverables
  ---
@@ -44,8 +39,6 @@ This **Full Stack Analysis** project demonstrates a complete, production-grade a
 
 
 
-
-
 🔍 Business Problem
 ---
 Product-led growth platforms struggle with understanding user progression through the funnel and identifying where interventions create the most impact. This project addresses three critical questions:
@@ -55,8 +48,6 @@ Where do users drop off? Analysis reveals 50% activation-to-feature adoption dro
 Which interventions work best? Three A/B tests were designed to address different funnel stages: onboarding flow (+31% lift), pricing strategy (+47% lift), and feature adoption (+87% lift), all achieving statistical significance.
 
 Is deployment safe? Weekly cohort analysis confirms metrics are stable (variance < 1%), validating that observed improvements are genuine and not noise.
-
-
 
 
 
