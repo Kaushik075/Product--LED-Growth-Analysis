@@ -9,6 +9,8 @@ This **Full Stack Analysis** project demonstrates a complete, production-grade a
 **Overview**
 ---
 
+<img width="881" height="562" alt="Image" src="https://github.com/user-attachments/assets/5994aa6e-bb30-4dd6-9de9-e580baa919cf" />
+
 **Users Analyzed:** 10,000 active users tracked across 8-week cohorts
 
 **Events Tracked:** 51,000+ events capturing user behavior across funnel
@@ -23,7 +25,6 @@ This **Full Stack Analysis** project demonstrates a complete, production-grade a
 
 **Data Confidence:** <1% weekly cohort variance across 8 weeks = 99.9% production confidence
 
-<img width="881" height="562" alt="Image" src="https://github.com/user-attachments/assets/5994aa6e-bb30-4dd6-9de9-e580baa919cf" />
 
 
  Key Deliverables
