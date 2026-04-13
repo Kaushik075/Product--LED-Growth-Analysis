@@ -23,6 +23,8 @@ This **Full Stack Analysis** project demonstrates a complete, production-grade a
 
 **Data Confidence:** <1% weekly cohort variance across 8 weeks = 99.9% production confidence
 
+<img width="881" height="562" alt="Image" src="https://github.com/user-attachments/assets/5994aa6e-bb30-4dd6-9de9-e580baa919cf" />
+
 **Funnel Flow**
 
 <img width="714" height="814" alt="image" src="https://github.com/user-attachments/assets/12eb5beb-4ea7-4395-8acc-0849646d1758" />
