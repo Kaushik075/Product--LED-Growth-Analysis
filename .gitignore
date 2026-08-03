@@ -1,0 +1,83 @@
+# ===================================================
+# PLG Funnel Analysis Dashboard — .gitignore
+# ===================================================
+
+# ===== Power BI =====
+# NOTE: the .pbix itself is intentionally NOT ignored — it's a tracked deliverable.
+*.pbix.bak
+~$*.pbix
+*.pbix.tmp
+*.pbit.bak
+AppData/
+TempSaves/
+*.pbids
+*.abf
+*.vpax.bak
+
+# TMDL exports — local rollback snapshots tied to a machine-specific path, not portable
+TMDL_Export/
+TMDL_Export_*/
+
+# ===== Secrets / credentials =====
+.env
+.env.*
+*.pem
+*.key
+secrets.json
+config_local.py
+credentials.json
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ===== MySQL =====
+*.sql.bak
+*.sql~
+*.dump
+*.mysql_history
+mysql-error.log
+mysqld.log
+
+# ===== Logs / cache / temp =====
+*.log
+logs/
+*.tmp
+*.temp
+*.cache
+.cache/
+PLG_Analytics_Report.txt
+
+# ===== VS Code =====
+.vscode/
+*.code-workspace
+
+# ===== Windows =====
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ===== macOS (harmless to include even on a Windows project) =====
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ===== Data exports (regenerate, don't commit) =====
+*.csv
+!/docs/**/*.csv
