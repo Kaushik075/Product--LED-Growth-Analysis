@@ -15,10 +15,6 @@ warnings.filterwarnings('ignore')
 REPORT_FILE = "PLG_Analytics_Report.txt"
 
 def log_output(message, print_to_console=True):
-    """
-    Write to both console AND file
-    This way output is saved even after closing CMD
-    """
     if print_to_console:
         print(message)
     
@@ -36,7 +32,7 @@ def connect_to_mysql():
     host='localhost',
     user='root',
     password=os.environ.get("PLG_MYSQL_PASSWORD", "************"),
-    database='plg_analytics',
+    database='********',
     charset='utf8mb4'
 )
         log_output("✅ Connected to MySQL successfully!")
