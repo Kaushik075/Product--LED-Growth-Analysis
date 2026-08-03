@@ -56,9 +56,14 @@ event_type in the fact table is a system value (feature_use), not a display labe
 
 **Page 1** — Funnel Conversion KPI cards (Signups, Activated, Feature Users, PQL Qualified, Paid), a funnel visualization, and a stage-by-stage conversion table showing drop-off between each step of the journey.
 
+<img width="1079" height="679" alt="Image" src="https://github.com/user-attachments/assets/56541153-cf07-4bbf-89bc-b6395ead3116" />
+
+
 ---
 
 **Page 2** - Experiments & Retention A/B test conversion rates by test, an A/B test summary (sample sizes, absolute and relative lift), and monthly cohort performance tracking retention and engagement over time.
+
+<img width="1087" height="685" alt="Image" src="https://github.com/user-attachments/assets/29518125-4ddc-4859-b6d7-00fffa2f6a19" />
 
 ---
 
