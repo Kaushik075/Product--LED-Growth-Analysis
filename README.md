@@ -105,9 +105,10 @@ Every visual in the report is powered by an explicit measure in a dedicated _Mea
 
 ## Project Structure
 
+## 📂 Project Structure
 
+```text
 PLG_Analytics_Project/
-│
 ├── Dashboard/
 │   └── PLG_Funnel_Analysis_Dashboard.pbix
 │
@@ -115,7 +116,7 @@ PLG_Analytics_Project/
 │   ├── Database_Setup.sql
 │   ├── Queries.sql
 │   ├── migration_01_add_dim_funnel_stage.sql
-|   ├── reset_database.sql
+│   └── reset_database.sql
 │
 ├── DATA/
 │   └── plg_data_generator.py
@@ -134,6 +135,8 @@ PLG_Analytics_Project/
 ├── README.md
 ├── .gitignore
 └── LICENSE
+```
+
 
 ## Screenshots
 
