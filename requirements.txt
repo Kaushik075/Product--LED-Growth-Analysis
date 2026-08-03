@@ -1,5 +1,0 @@
-mysql-connector-python>=8.0.33
-pandas>=2.0.0
-numpy>=1.24.0
-scipy>=1.10.0
-Faker>=19.0.0
