@@ -34,6 +34,7 @@ The dashboard connects to MySQL via ODBC and refreshes directly from the warehou
 | **dim_users**        | Account-level attributes including user segment, device, platform, industry, and signup date.                   |
 | **dim_funnel_stage** | Lookup dimension providing funnel stage labels and explicit sort order, decoupled from raw `event_type` values. |
 
+**Fact Tables**
 
 | Table                | Grain                     | Purpose                                                                                  |
 | -------------------- | ------------------------- | ---------------------------------------------------------------------------------------- |
