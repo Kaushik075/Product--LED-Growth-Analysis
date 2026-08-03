@@ -11,7 +11,7 @@ The project simulates a 10,000-user SaaS product and answers three questions any
 
 Product-led growth platforms generate constant event volume but often can't answer simple questions cleanly: where exactly is the funnel leaking users, which of several competing experiments is worth prioritizing, and whether early cohort behavior is stable enough to trust. This project builds the full analytical stack needed to answer those three questions from first principles, rather than from a spreadsheet someone manually maintains.
 
-## solution
+## Solution
 
 A normalized MySQL warehouse (3NF) with dimension and fact tables built around a user_id grain.
 
@@ -27,9 +27,21 @@ The dashboard connects to MySQL via ODBC and refreshes directly from the warehou
 
 ## Database Schema
 
-Dimension Tables
+**Dimension Tables**
 
-pending 
+| Table                | Purpose                                                                                                         |
+| -------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **dim_users**        | Account-level attributes including user segment, device, platform, industry, and signup date.                   |
+| **dim_funnel_stage** | Lookup dimension providing funnel stage labels and explicit sort order, decoupled from raw `event_type` values. |
+
+
+| Table                | Grain                     | Purpose                                                                                  |
+| -------------------- | ------------------------- | ---------------------------------------------------------------------------------------- |
+| **fact_user_events** | One row per user event    | Stores the complete product journey from signup through payment.                         |
+| **fact_ab_tests**    | One row per user per test | Stores A/B test assignments, variants, and conversion outcomes across three experiments. |
+| **fact_cohort_data** | One row per user          | Stores milestone dates and time-to-conversion metrics for cohort analysis.               |
+
+
 
 ---
 
@@ -52,18 +64,24 @@ event_type in the fact table is a system value (feature_use), not a display labe
 The dashboard is intentionally scoped to these two focused, interactive pages rather than a static summary view — every number is explorable and refreshes from the live model.
 
 ## Key Metrics
-Stage	Users	Conversion from Prior Stage
-Signup	10,000	—
-Activation	7,027	70.27%
-Feature Adoption	3,496	49.75%
-PQL Qualified	1,434	41.02%
-Paid Conversion	378	26.36%
+
+| Funnel Stage     |  Users | Conversion from Previous Stage |
+| ---------------- | -----: | -----------------------------: |
+| Signup           | 10,000 |                              — |
+| Activation       |  7,027 |                         70.27% |
+| Feature Adoption |  3,496 |                         49.75% |
+| PQL Qualified    |  1,434 |                         41.02% |
+| Paid Conversion  |    378 |                         26.36% |
+
 
 ## A/B Testing Analysis
-Test	Control	Treatment	Absolute Lift	Relative Lift
-Feature Adoption (tooltip guide)	14.67%	23.56%	8.89 pts	+60.61%
-Onboarding Flow (quick start)	15.35%	26.02%	10.67 pts	+69.51%
-Pricing Strategy (freemium)	15.40%	23.57%	8.17 pts	+53.01%
+
+| Experiment       | Control | Treatment | Absolute Lift | Relative Lift |
+| ---------------- | ------: | --------: | ------------: | ------------: |
+| Feature Adoption |  14.67% |    23.56% |     +8.89 pts |       +60.61% |
+| Onboarding Flow  |  15.35% |    26.02% |    +10.67 pts |       +69.51% |
+| Pricing Strategy |  15.40% |    23.57% |     +8.17 pts |       +53.01% |
+
 
 All three tests ran on balanced samples (~4,000 users per variant) and were validated for statistical significance using chi-square testing (p < 0.05) in analysis/PLG_Analytics_EDA_v2.py, not just raw percentage comparison.
 
@@ -71,12 +89,12 @@ All three tests ran on balanced samples (~4,000 users per variant) and were vali
 
 Weekly signup cohorts tracked across the full observation window (aggregated to monthly in the dashboard view):
 
-Metric	Overall
-Cohort Size	10,000
-Week 1 Retention (Activation)	70.27%
-Week 2 Engagement (Feature Use)	34.96%
-Paid Conversion	3.78%
-Semantic Model & DAX
+| Metric                               |  Value |
+| ------------------------------------ | -----: |
+| Cohort Size                          | 10,000 |
+| Week 1 Retention (Activation)        | 70.27% |
+| Week 2 Engagement (Feature Adoption) | 34.96% |
+| Paid Conversion                      |  3.78% |
 
 ---
 
@@ -85,6 +103,7 @@ Every visual in the report is powered by an explicit measure in a dedicated _Mea
 **Project evolution**: the dashboard was originally built against manually maintained Excel snapshot tables layered on top of the connected database. During a later engineering pass, the model was fully migrated to compute every visual live from the warehouse via DAX, and the snapshot tables were removed entirely — a deliberate step to ensure the dashboard reflects the actual state of the data rather than a point-in-time export.
 
 ## Project Structure
+
 
 PLG_Analytics_Project/
 │
@@ -95,13 +114,13 @@ PLG_Analytics_Project/
 │   ├── Database_Setup.sql
 │   ├── Queries.sql
 │   ├── migration_01_add_dim_funnel_stage.sql
-    ├── reset_database.sql
+|   ├── reset_database.sql
 │
 ├── DATA/
 │   └── plg_data_generator.py
 │
 ├── analysis/
-│   └── PLG_Analytics_EDA.py
+│   └── PLG_Analytics_EDA_v2.py
 │
 ├── docs/
 │   ├── screenshots/
