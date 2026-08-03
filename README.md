@@ -1,147 +1,136 @@
-## Product LED Growth Funnel Analysis- SaaS User Journey & Experimentation
-
- Analysis Report : https://fancy-anglerfish-6b3.notion.site/Product-LED-Growth-Funnel-Analysis-SaaS-User-Journey-Experimentation-2d5749751fc280f29181fa0a887b8949
-
-<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/b0b4c635-2223-4fd5-8bd6-795fcd75f929" />
-
-## Executive Summary
- 
-This **Full Stack Analysis** project demonstrates a complete, production-grade analytics pipeline that transforms raw user data into actionable business intelligence. Starting from a normalized MySQL database with 10,000 users and 51,000+ events, the analysis identifies a critical feature adoption bottleneck and quantifies a $570K/year revenue opportunity through A/B testing and statistical validation.
+## PLG Funnel Analysis Dashboard
+End-to-End Product-Led Growth Analytics — from Synthetic Data to Semantic Model
 
 **Overview**
----
 
-<img width="881" height="562" alt="Image" src="https://github.com/user-attachments/assets/5994aa6e-bb30-4dd6-9de9-e580baa919cf" />
+A complete Product-Led Growth (PLG) analytics pipeline, built to demonstrate the full path from raw event data to a production-style, refreshable BI dashboard: synthetic data generation → normalized MySQL warehouse → SQL analysis → a star-schema semantic model → live DAX measures → an interactive Power BI report.
 
-**Users Analyzed:** 10,000 active users tracked across 8-week cohorts
+The project simulates a 10,000-user SaaS product and answers three questions any PLG team asks: where users drop off in the funnel, which experiments actually move the needle, and how retention behaves across cohorts over time.
 
-**Events Tracked:** 51,000+ events capturing user behavior across funnel
+## Business Problem
 
-**Key Finding:** 50% feature adoption bottleneck = $529K annual revenue leakage
+Product-led growth platforms generate constant event volume but often can't answer simple questions cleanly: where exactly is the funnel leaking users, which of several competing experiments is worth prioritizing, and whether early cohort behavior is stable enough to trust. This project builds the full analytical stack needed to answer those three questions from first principles, rather than from a spreadsheet someone manually maintains.
 
-**Solution Validated:** +87% Tooltip Guide test (p<0.001) generates $165.6K annually
+## solution
 
-**Market Expansion:** +47% Freemium model expands TAM to 556 customers = $318.6K opportunity
+A normalized MySQL warehouse (3NF) with dimension and fact tables built around a user_id grain.
 
-**Revenue Opportunity:** Combined interventions transform $680K baseline → $1.25M (87% growth) over 7-week rollout
+Ten hand-written SQL queries covering funnel conversion, segmentation, time-to-value, cohort retention, A/B test comparison, churn risk, and LTV.
 
-**Data Confidence:** <1% weekly cohort variance across 8 weeks = 99.9% production confidence
+A Python EDA layer (analysis/PLG_Analytics_EDA_v2.py) that runs proper statistical validation — chi-square significance testing — on all three A/B tests, not just raw percentage comparisons.
 
+A Power BI semantic model with a genuine star schema, an explicit _Measures table, and every visual backed by live DAX — no static exports, no manually maintained snapshot data anywhere in the report.
 
+## Architecture
 
- Key Deliverables
- ---
+The dashboard connects to MySQL via ODBC and refreshes directly from the warehouse — there is no intermediate export step between the database and the report. See docs/database_erd.png for the full entity-relationship diagram of the warehouse schema.
 
-**EDA Report:** PLG_Analytics_Report.pdf - Comprehensive exploratory data analysis with statistical findings
+## Database Schema
 
-**MySQL Queries:** PLG_MySQL_Queries.pdf - 10 production-ready queries covering funnel, cohort, and revenue analysis
+Dimension Tables
 
-**Power BI Dashboard:** 3-page interactive dashboard with automated insights and recommendations
-
-**Python Analysis:** End-to-end data pipeline with chi-square testing and scenario modeling
-
-
-
-🔍 Business Problem
----
-Product-led growth platforms struggle with understanding user progression through the funnel and identifying where interventions create the most impact. This project addresses three critical questions:
-
-Where do users drop off? Analysis reveals 50% activation-to-feature adoption drop-off, indicating a severe engagement issue that costs the company ~$200K annually in potential revenue.
-
-Which interventions work best? Three A/B tests were designed to address different funnel stages: onboarding flow (+31% lift), pricing strategy (+47% lift), and feature adoption (+87% lift), all achieving statistical significance.
-
-Is deployment safe? Weekly cohort analysis confirms metrics are stable (variance < 1%), validating that observed improvements are genuine and not noise.
-
-
-
-
-
-
-Methodology
----
-
-<img width="1017" height="596" alt="Image" src="https://github.com/user-attachments/assets/36d78d2f-ddd6-42c7-a0bc-5dec4c709a40" />
-
-
-# Phase 1: Data Generation & Infrastructure
-
-The project begins with a 3NF normalized MySQL database designed to handle millions of records with proper relationships and constraints. Using Python and the Faker library, 10,000 realistic user profiles were generated across Organic, Paid, Referral, and Direct segments with device and platform distribution. Events were created to simulate realistic user journeys (51,231 total events) with probabilistic conversion rates at each funnel stage (signup→activation: 70%, activation→feature: 50%, feature→PQL: 40%, PQL→paid: 25%).
-
-# Phase 2: Exploratory Data Analysis
-
-Pandas-based EDA examined user demographics, funnel progression, and temporal patterns. Each user segment was analyzed separately to identify performance differences (Direct segment showed 4.3% conversion vs 3.4% for Paid). Time-to-value metrics were calculated (1.1 days signup→activation, 11 days activation→PQL, 15 days PQL→paid), revealing that the activation bottleneck happens early when engagement barriers are highest.
-
-# Phase 3: A/B Testing & Statistical Validation
-
-Three concurrent tests were conducted on balanced samples (n=4,000 per variant). Chi-square tests confirmed statistical significance for all treatments (p < 0.001, 99.9% confidence level). The Feature Adoption test achieved the highest lift (+87%) using an in-app tooltip, demonstrating that simple, contextual guidance directly addresses the engagement gap identified in Phase 2.
-
-# Phase 4: Power BI Visualization & Insights
-
-A professional 3-page dashboard was built in Power BI to present findings: funnel visualization with drop-off indicators, A/B test comparison charts, and weekly cohort retention tracking. An insights bookmark synthesizes all analysis into 8 actionable boxes covering health assessment, statistical significance, revenue scenarios, and priority recommendations, making the findings accessible to both technical and non-technical stakeholders.
-
-# Phase 5: Business Impact Modeling & Documentation
-
-Three revenue scenarios were modeled based on test results: deploying the tooltip guide (low effort, +$165.6K/year), implementing freemium pricing (+$318.6K/year), or both (+$570K/year). Documentation ensures every number is traceable to its underlying calculation, supporting stakeholder confidence in deployment decisions.
-
-Results 
---
-## Funnel Performance Analysis
-
-The complete funnel shows healthy top-of-funnel (70% activation, industry average) but severe mid-funnel friction. Feature adoption sits at just 35% of signups (vs. expected 50%+), representing the primary bottleneck. This 50% activation-to-feature drop-off translates directly to revenue loss: if adoption improved to 60%, an additional $165K would be generated annually based on current cohort data.
-
-<img width="739" height="305" alt="Image" src="https://github.com/user-attachments/assets/615c8e32-6e89-4fe2-ba61-f21cf741f3c8" />
-
-
-A/B Test Results with Statistical Validation
---
-
-All three treatments showed statistically significant improvements. The Feature Adoption test using an in-app tooltip guide emerged as the clear winner: 28% conversion vs. 15% control, a +87% relative lift. This is particularly powerful because tooltip implementation requires minimal engineering effort (UI change only) and delivers the highest business impact.
-
-<img width="734" height="327" alt="Image" src="https://github.com/user-attachments/assets/e0bc6a42-afe3-4ca8-8d11-b4133804781d" />
-
-
-Cohort Stability & Risk Assessment
--
-Weekly cohorts from August through November show consistent metrics (±0.09% activation variance, ±0.15% feature adoption variance), confirming that conversion patterns are stable and not driven by seasonal or temporal anomalies. This low variance validates deployment safety: improvements observed in A/B tests reflect genuine behavioral changes, not noise.
-
-Device & Segment Performance Insights
--
-Mobile users outperform desktop (4.14% vs 3.28% conversion), while Direct acquisition channels show 27% higher conversion than Paid channels (4.32% vs 3.42%). These insights suggest prioritizing mobile experience optimization and investigating why Paid channels underperform relative to organic acquisition.
+pending 
 
 ---
 
+## Why a dimension for funnel stages: 
 
-<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/30c6c19c-465b-4a90-b984-c7ae01ccc558" />
-
-
-<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/560abeba-085d-4517-9e08-4ac0115242a5" />
-
-
-<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/bab65f79-8d94-437b-92a9-79163e824c4f" />
+event_type in the fact table is a system value (feature_use), not a display label, and carries no inherent ordering. Rather than embed presentation logic directly in the event log or route it through a disconnected helper table, dim_funnel_stage holds the natural key, display label, and sort order as a proper one-to-many related dimension — keeping the fact table a clean, unopinionated record of what happened. Full relationships are visualized in docs/database_erd.png
 
 
 
-MAJOR RECOMMENDATIONS
--
-Deploy Tooltip Guide First (2 Weeks, +$165.6K ROI):
-Launch feature adoption tooltip immediately as quickest win with highest lift (+87%) and lowest effort (UI change only) to establish momentum.
+## Dashboard Walkthrough
 
-Implement Freemium Pricing Second (4 Weeks, +$318.6K ROI):
-Roll out freemium model in parallel to capture price-sensitive segment and expand customer base while tooltip impact is validated in production.
-
-Launch Retargeting Campaign for Inactive Users (1 Week, +$45K ROI): 
-Target 3,661 activated users who skip features with email/push using tooltip insights to capture low-hanging fruit while major initiatives deploy.
-
-Monitor Feature Adoption Rate Weekly (Target: 49.7% → 65%):
-Track progress toward 65% feature adoption goal post-deployment with real-time dashboards to ensure improvements match A/B test results in production.
-
-Phased 20% Rollout Before Full Deployment (Risk Mitigation): 
-Test all interventions on 20% user segment first to validate production results before 100% deployment, protecting against unexpected environment-specific issues.
+**Page 1** — Funnel Conversion KPI cards (Signups, Activated, Feature Users, PQL Qualified, Paid), a funnel visualization, and a stage-by-stage conversion table showing drop-off between each step of the journey.
 
 ---
 
-**Exploratory Data Analysis (Python) - Report**
+**Page 2** - Experiments & Retention A/B test conversion rates by test, an A/B test summary (sample sizes, absolute and relative lift), and monthly cohort performance tracking retention and engagement over time.
 
+---
 
+The dashboard is intentionally scoped to these two focused, interactive pages rather than a static summary view — every number is explorable and refreshes from the live model.
 
-<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/904cb078-7a6c-43ce-9fbb-62d76de58b01" />
+## Key Metrics
+Stage	Users	Conversion from Prior Stage
+Signup	10,000	—
+Activation	7,027	70.27%
+Feature Adoption	3,496	49.75%
+PQL Qualified	1,434	41.02%
+Paid Conversion	378	26.36%
+
+## A/B Testing Analysis
+Test	Control	Treatment	Absolute Lift	Relative Lift
+Feature Adoption (tooltip guide)	14.67%	23.56%	8.89 pts	+60.61%
+Onboarding Flow (quick start)	15.35%	26.02%	10.67 pts	+69.51%
+Pricing Strategy (freemium)	15.40%	23.57%	8.17 pts	+53.01%
+
+All three tests ran on balanced samples (~4,000 users per variant) and were validated for statistical significance using chi-square testing (p < 0.05) in analysis/PLG_Analytics_EDA_v2.py, not just raw percentage comparison.
+
+## Cohort Analysis
+
+Weekly signup cohorts tracked across the full observation window (aggregated to monthly in the dashboard view):
+
+Metric	Overall
+Cohort Size	10,000
+Week 1 Retention (Activation)	70.27%
+Week 2 Engagement (Feature Use)	34.96%
+Paid Conversion	3.78%
+Semantic Model & DAX
+
+---
+
+Every visual in the report is powered by an explicit measure in a dedicated _Measures table — there are no implicit aggregations and no business logic embedded in calculated columns. Measures use direct boolean filter arguments in CALCULATE rather than wrapping FILTER() around entire tables, and stage-over-stage conversion is computed via a self-referencing lookup against dim_funnel_stage[SortOrder] rather than hardcoded stage-to-stage logic. All relationships are single-direction unless a specific case requires otherwise, keeping filter propagation predictable across the model.
+
+**Project evolution**: the dashboard was originally built against manually maintained Excel snapshot tables layered on top of the connected database. During a later engineering pass, the model was fully migrated to compute every visual live from the warehouse via DAX, and the snapshot tables were removed entirely — a deliberate step to ensure the dashboard reflects the actual state of the data rather than a point-in-time export.
+
+## Project Structure
+
+PLG_Analytics_Project/
+│
+├── Dashboard/
+│   └── PLG_Funnel_Analysis_Dashboard.pbix
+│
+├── DATABASE/
+│   ├── Database_Setup.sql
+│   ├── Queries.sql
+│   ├── migration_01_add_dim_funnel_stage.sql
+    ├── reset_database.sql
+│
+├── DATA/
+│   └── plg_data_generator.py
+│
+├── analysis/
+│   └── PLG_Analytics_EDA.py
+│
+├── docs/
+│   ├── screenshots/
+│   │   ├── funnel_conversion.png
+│   │   ├── experiments_retention.png
+│   │   └── mysql_erd.png
+│   │
+│   └── PLG_Analytics_Report.pdf
+│
+├── README.md
+├── .gitignore
+└── LICENSE
+
+## Screenshots
+
+See docs/ for the full-resolution dashboard pages (funnel_conversion.png, experiments_retention.png) and the warehouse entity-relationship diagram (database_erd.png).
+
+## Learning Outcomes
+Designing a normalized, query-efficient MySQL warehouse from scratch, including dimension modeling decisions (degenerate dimensions, natural vs. surrogate keys).
+Writing production-style DAX: explicit measures, correct filter context, self-referencing lookups for sequential comparisons, and avoiding anti-patterns like disconnected helper tables where a proper relationship is the better fit.
+
+Recognizing and correcting a real architectural gap mid-project — migrating a dashboard from static, manually maintained data to a fully live, DAX-driven semantic model — rather than treating "it displays correctly" as equivalent to "it's built correctly."
+
+Applying proper statistical validation (chi-square significance testing) to A/B test results instead of relying on raw percentage comparisons.
+
+## Future Enhancements
+Extend the schema to link A/B test participation to downstream payment events, enabling a defensible revenue-impact calculation rather than the current standalone reporting of conversion lift and revenue as separate signals.
+Add incremental refresh for the fact tables as event volume scales beyond a single full-refresh pattern.
+Formalize the SQL migration scripts under a lightweight versioning convention as the schema continues to evolve.
+
+## License
+MIT — see **LICENSE** for details.
