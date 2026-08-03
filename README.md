@@ -1,7 +1,7 @@
 ## PLG Funnel Analysis Dashboard
 End-to-End Product-Led Growth Analytics — from Synthetic Data to Semantic Model
 
-**Overview**
+## Overview
 
 A complete Product-Led Growth (PLG) analytics pipeline, built to demonstrate the full path from raw event data to a production-style, refreshable BI dashboard: synthetic data generation → normalized MySQL warehouse → SQL analysis → a star-schema semantic model → live DAX measures → an interactive Power BI report.
 
