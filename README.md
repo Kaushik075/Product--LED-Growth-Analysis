@@ -293,9 +293,6 @@ python analysis/PLG_Analytics_EDA.py
 
 ## 🖼 Screenshots
 
-### Dashboard Overview
-`[ IMAGE PLACEHOLDER ]`
-
 ### Funnel Conversion
 `[ IMAGE PLACEHOLDER: docs/images/funnel_conversion.png ]`
 
