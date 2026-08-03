@@ -1,3 +1,4 @@
+import os
 import mysql.connector
 from faker import Faker
 import random
@@ -10,11 +11,15 @@ fake.seed_instance(42)
 random.seed(42)
 
 # MySQL connection configuration
+# Password is read from the PLG_MYSQL_PASSWORD environment variable.
+# Set it before running this script, e.g.:
+#   export PLG_MYSQL_PASSWORD="your_mysql_password"      (macOS/Linux)
+#   set PLG_MYSQL_PASSWORD=your_mysql_password            (Windows cmd)
 DB_CONFIG = {
     'host': 'localhost',
-    'user': 'root',
-    'password': 'kaushikyeddanapudi_75',
-    'database': 'plg_analytics',
+    'user': '*****',
+    'password': os.environ.get("PLG_MYSQL_PASSWORD", "************"),
+    'database': '*********',
     'charset': 'utf8mb4'
 }
 
@@ -174,7 +179,7 @@ def generate_user_events(connection, num_users=10000):
     print(f"✅ Generated {event_count:,} user events!")
 
 def generate_ab_tests(connection, num_users=10000):
-    """Generate A/B test assignment data - FIXED VERSION"""
+    """Generate A/B test assignment data for three simulated experiments."""
     print(f"\n🔄 Generating A/B test assignments...")
     cursor = connection.cursor()
     
@@ -218,10 +223,12 @@ def generate_ab_tests(connection, num_users=10000):
                 test_date.date(),
                 test_end.date(),
                 converted,
-                conversion_timestamp  # ✅ NOW HANDLES None PROPERLY
+                conversion_timestamp  # NULL when the user did not convert
             ))
     
-    # FIX: Insert in smaller batches to handle None values
+    # Insert in smaller batches; conversion_timestamp may be NULL for
+    # non-converting users, so batches are kept small and wrapped in a
+    # try/except below to fail fast and roll back cleanly if any batch errors.
     batch_size = 5000
     for i in range(0, len(ab_tests_data), batch_size):
         batch = ab_tests_data[i:i+batch_size]
@@ -339,12 +346,16 @@ def print_statistics(connection):
     """)
     
     activations, feature_uses, pqls, payments = cursor.fetchone()
-    
-    print(f"   Signups: 10,000")
-    print(f"   Activations: {activations:,} ({activations/100:.1f}%)")
-    print(f"   Feature Users: {feature_uses:,} ({feature_uses/100:.1f}%)")
-    print(f"   PQLs: {pqls:,} ({pqls/100:.1f}%)")
-    print(f"   Paid Customers: {payments:,} ({payments/100:.1f}%)")
+
+    cursor.execute("SELECT COUNT(*) FROM dim_users")
+    total_signups = cursor.fetchone()[0]
+    pct = lambda n: (n / total_signups * 100) if total_signups else 0
+
+    print(f"   Signups: {total_signups:,}")
+    print(f"   Activations: {activations:,} ({pct(activations):.1f}%)")
+    print(f"   Feature Users: {feature_uses:,} ({pct(feature_uses):.1f}%)")
+    print(f"   PQLs: {pqls:,} ({pct(pqls):.1f}%)")
+    print(f"   Paid Customers: {payments:,} ({pct(payments):.1f}%)")
     
     cursor.close()
 

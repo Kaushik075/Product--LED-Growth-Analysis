@@ -35,7 +35,7 @@ def connect_to_mysql():
         connection = mysql.connector.connect(
     host='localhost',
     user='root',
-    password=os.environ.get("PLG_MYSQL_PASSWORD", "kaushikyeddanapudi_75"),
+    password=os.environ.get("PLG_MYSQL_PASSWORD", "************"),
     database='plg_analytics',
     charset='utf8mb4'
 )
@@ -103,7 +103,6 @@ def analyze_funnel(dfs):
     
     overall_conversion = (funnel_stages['Paid'] / funnel_stages['Signup']) * 100
     log_output(f"\n📈 Overall Conversion: {overall_conversion:.2f}%")
-    log_output(f"✅ Status: Upper Quartile Performer (Industry avg: 2-3%)")
     
     return funnel_stages
 
@@ -190,11 +189,12 @@ def analyze_cohorts(dfs):
         cohort_summary[f'{col}%'] = (cohort_summary[col] / cohort_summary['Total'] * 100).round(2)
     
     log_output("\n📊 Cohort Week-over-Week Retention:")
-    log_output(f"\n{'Week':<12} {'Total':<8} {'Act%':<8} {'Feature%':<10} {'PQL%':<8} {'Paid%':<8}")
+    log_output(f"\n{'Cohort Week':<12} {'Total':<8} {'Act%':<8} {'Feature%':<10} {'PQL%':<8} {'Paid%':<8}")
     log_output("-" * 54)
     
-    for idx, (cohort_date, row) in enumerate(cohort_summary.iterrows(), 1):
-        log_output(f"2024 Week {idx:<4} {int(row['Total']):<8} {row['Activated%']:<8.1f} {row['Feature%']:<10.1f} {row['PQL%']:<8.1f} {row['Paid%']:<8.1f}")
+    for cohort_date, row in cohort_summary.iterrows():
+        week_label = pd.to_datetime(cohort_date).strftime('%Y-%m-%d')
+        log_output(f"{week_label:<12} {int(row['Total']):<8} {row['Activated%']:<8.1f} {row['Feature%']:<10.1f} {row['PQL%']:<8.1f} {row['Paid%']:<8.1f}")
     
     # Stability check
     log_output("\n✅ COHORT STABILITY CHECK:")

@@ -1,5 +1,7 @@
--- PLG FUNNEL ANALYSIS - DATABASE SETUP
-
+-- ============================================================
+-- PLG Funnel Analysis - Database Setup
+-- Creates the complete database schema for a fresh installation.
+-- ============================================================
 -- Create Database
 CREATE DATABASE IF NOT EXISTS plg_analytics;
 USE plg_analytics;

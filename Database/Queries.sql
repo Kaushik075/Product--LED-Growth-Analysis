@@ -80,40 +80,63 @@ ORDER BY conversion_rate DESC;
 
 
 -- QUERY 4: TIME TO VALUE (TTV) ANALYSIS --
+-- median_days is a true median (via window functions), not a duplicate of avg_days.
+-- Each stage is computed as its own CTE and combined with UNION ALL.
 
-SELECT 
-    'Signup to Activation' as journey_stage,
-    ROUND(AVG(c.days_to_activation), 1) as avg_days,
-    ROUND(AVG(c.days_to_activation), 1) as median_days,
-    MIN(c.days_to_activation) as min_days,
-    MAX(c.days_to_activation) as max_days,
-    COUNT(DISTINCT c.user_id) as users_completed
-FROM fact_cohort_data c
-WHERE c.activation_date IS NOT NULL
+WITH signup_to_activation AS (
+    SELECT
+        c.days_to_activation AS days_value,
+        ROW_NUMBER() OVER (ORDER BY c.days_to_activation) AS rn,
+        COUNT(*) OVER () AS cnt
+    FROM fact_cohort_data c
+    WHERE c.activation_date IS NOT NULL
+),
+activation_to_pql AS (
+    SELECT
+        DATEDIFF(c.pql_date, c.activation_date) AS days_value,
+        ROW_NUMBER() OVER (ORDER BY DATEDIFF(c.pql_date, c.activation_date)) AS rn,
+        COUNT(*) OVER () AS cnt
+    FROM fact_cohort_data c
+    WHERE c.pql_date IS NOT NULL AND c.activation_date IS NOT NULL
+),
+pql_to_paid AS (
+    SELECT
+        DATEDIFF(c.payment_date, c.pql_date) AS days_value,
+        ROW_NUMBER() OVER (ORDER BY DATEDIFF(c.payment_date, c.pql_date)) AS rn,
+        COUNT(*) OVER () AS cnt
+    FROM fact_cohort_data c
+    WHERE c.payment_date IS NOT NULL AND c.pql_date IS NOT NULL
+)
+SELECT
+    'Signup to Activation' AS journey_stage,
+    ROUND((SELECT AVG(days_value) FROM signup_to_activation), 1) AS avg_days,
+    ROUND((SELECT AVG(days_value) FROM signup_to_activation
+           WHERE rn IN (FLOOR((cnt + 1) / 2), FLOOR((cnt + 2) / 2))), 1) AS median_days,
+    (SELECT MIN(days_value) FROM signup_to_activation) AS min_days,
+    (SELECT MAX(days_value) FROM signup_to_activation) AS max_days,
+    (SELECT COUNT(*) FROM signup_to_activation) AS users_completed
 
 UNION ALL
 
-SELECT 
+SELECT
     'Activation to PQL',
-    ROUND(AVG(DATEDIFF(c.pql_date, c.activation_date)), 1),
-    ROUND(AVG(DATEDIFF(c.pql_date, c.activation_date)), 1),
-    MIN(DATEDIFF(c.pql_date, c.activation_date)),
-    MAX(DATEDIFF(c.pql_date, c.activation_date)),
-    COUNT(DISTINCT c.user_id)
-FROM fact_cohort_data c
-WHERE c.pql_date IS NOT NULL AND c.activation_date IS NOT NULL
+    ROUND((SELECT AVG(days_value) FROM activation_to_pql), 1),
+    ROUND((SELECT AVG(days_value) FROM activation_to_pql
+           WHERE rn IN (FLOOR((cnt + 1) / 2), FLOOR((cnt + 2) / 2))), 1),
+    (SELECT MIN(days_value) FROM activation_to_pql),
+    (SELECT MAX(days_value) FROM activation_to_pql),
+    (SELECT COUNT(*) FROM activation_to_pql)
 
 UNION ALL
 
-SELECT 
+SELECT
     'PQL to Paid',
-    ROUND(AVG(DATEDIFF(c.payment_date, c.pql_date)), 1),
-    ROUND(AVG(DATEDIFF(c.payment_date, c.pql_date)), 1),
-    MIN(DATEDIFF(c.payment_date, c.pql_date)),
-    MAX(DATEDIFF(c.payment_date, c.pql_date)),
-    COUNT(DISTINCT c.user_id)
-FROM fact_cohort_data c
-WHERE c.payment_date IS NOT NULL AND c.pql_date IS NOT NULL;
+    ROUND((SELECT AVG(days_value) FROM pql_to_paid), 1),
+    ROUND((SELECT AVG(days_value) FROM pql_to_paid
+           WHERE rn IN (FLOOR((cnt + 1) / 2), FLOOR((cnt + 2) / 2))), 1),
+    (SELECT MIN(days_value) FROM pql_to_paid),
+    (SELECT MAX(days_value) FROM pql_to_paid),
+    (SELECT COUNT(*) FROM pql_to_paid);
 
 
 -- QUERY 5: COHORT RETENTION ANALYSIS (WEEKLY) --
@@ -194,15 +217,18 @@ ORDER BY pql_rate DESC;
 
 
 -- QUERY 9: CHURN ANALYSIS - AT-RISK SEGMENTS --
+-- Anchored to the dataset's own latest signup date (not CURDATE()) so results
+-- are reproducible: this dataset is static/synthetic, so "today" should not
+-- change what the query returns depending on when it happens to be run.
 
 SELECT 
     u.user_segment,
     COUNT(DISTINCT u.user_id) as total_users,
     COUNT(DISTINCT CASE WHEN e.event_type = 'activation' THEN u.user_id END) as activated,
     COUNT(DISTINCT CASE WHEN c.feature_adoption_date IS NULL AND 
-                             DATEDIFF(CURDATE(), u.signup_date) > 14 THEN u.user_id END) as inactive_14days,
+                             DATEDIFF((SELECT MAX(signup_date) FROM dim_users), u.signup_date) > 14 THEN u.user_id END) as inactive_14days,
     ROUND(100.0 * COUNT(DISTINCT CASE WHEN c.feature_adoption_date IS NULL AND 
-                                          DATEDIFF(CURDATE(), u.signup_date) > 14 THEN u.user_id END) / 
+                                          DATEDIFF((SELECT MAX(signup_date) FROM dim_users), u.signup_date) > 14 THEN u.user_id END) / 
           COUNT(DISTINCT u.user_id), 2) as churn_risk_rate
 FROM dim_users u
 LEFT JOIN fact_user_events e ON u.user_id = e.user_id
