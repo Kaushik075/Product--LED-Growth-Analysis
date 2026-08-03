@@ -294,13 +294,13 @@ python analysis/PLG_Analytics_EDA.py
 ## 🖼 Screenshots
 
 ### Funnel Conversion
-`[ <img width="1079" height="679" alt="Image" src="https://github.com/user-attachments/assets/56541153-cf07-4bbf-89bc-b6395ead3116" /> ]`
+<img width="1079" height="679" alt="Image" src="https://github.com/user-attachments/assets/56541153-cf07-4bbf-89bc-b6395ead3116" />
 
 ### Experiments & Retention
-`[<img width="1087" height="685" alt="Image" src="https://github.com/user-attachments/assets/29518125-4ddc-4859-b6d7-00fffa2f6a19" />]`
+<img width="1087" height="685" alt="Image" src="https://github.com/user-attachments/assets/29518125-4ddc-4859-b6d7-00fffa2f6a19" />
 
 ### Entity Relationship Diagram
-`[ <img width="970" height="620" alt="Image" src="https://github.com/user-attachments/assets/97dd3eb5-b624-4ef7-807b-55f636a81476" /> ]`
+<img width="970" height="620" alt="Image" src="https://github.com/user-attachments/assets/97dd3eb5-b624-4ef7-807b-55f636a81476" />
 
 ---
 
