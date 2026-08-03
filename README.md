@@ -130,7 +130,7 @@ PLG_Analytics_Project/
 │   │   ├── experiments_retention.png
 │   │   └── mysql_erd.png
 │   │
-│   └── PLG_Analytics_Report.pdf
+├── PLG_Analytics_Report.pdf
 │
 ├── README.md
 ├── .gitignore
