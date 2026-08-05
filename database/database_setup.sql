@@ -38,7 +38,7 @@ INSERT IGNORE INTO dim_funnel_stage (
 VALUES
 (1, 'signup', 'Signup', 1),
 (2, 'activation', 'Activation', 2),
-(3, 'feature_adoption', 'Feature Adoption', 3),
+(3, 'feature_use', 'Feature Adoption', 3),
 (4, 'pql_qualified', 'PQL Qualified', 4),
 (5, 'payment_complete', 'Paid Conversion', 5);
 
