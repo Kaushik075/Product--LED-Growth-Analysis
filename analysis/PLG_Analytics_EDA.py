@@ -31,8 +31,8 @@ def connect_to_mysql():
         connection = mysql.connector.connect(
     host='localhost',
     user='root',
-    password=os.environ.get("PLG_MYSQL_PASSWORD", "************"),
-    database='********',
+    password=os.environ.get("PLG_MYSQL_PASSWORD", ""),
+database='plg_analytics',
     charset='utf8mb4'
 )
         log_output("✅ Connected to MySQL successfully!")
