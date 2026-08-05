@@ -124,7 +124,7 @@ The warehouse is modeled as a **star schema** — a central set of fact tables r
 
 ### Why `dim_funnel_stage` exists
 
-`event_type` in `fact_user_events` is a system value (e.g. `feature_adoption`), not a presentation-ready label, and it carries no inherent ordering. Rather than hardcode display logic into the fact table or a report-side transform, `dim_funnel_stage` holds the natural key, a clean `stage_label`, and an explicit `sort_order` — keeping the fact table an unopinionated record of what happened, while giving the dashboard a proper dimension to join against for labeling and ordering.
+`event_type` in `fact_user_events` is a system value (e.g. `feature_use`), not a presentation-ready label, and it carries no inherent ordering. Rather than hardcode display logic into the fact table or a report-side transform, `dim_funnel_stage` holds the natural key, a clean `stage_label`, and an explicit `sort_order` — keeping the fact table an unopinionated record of what happened, while giving the dashboard a proper dimension to join against for labeling and ordering.
 
 ### Relationships
 
