@@ -239,9 +239,9 @@ Product--LED-Growth-Analysis/
 │
 ├── docs/
 │   └── images/
-│       ├── funnel_conversion.png
-│       ├── experiments_retention.png
-│       └── database_erd.png
+│       ├── funnel_conversion.jpeg
+│       ├── experiments_retention.jpeg
+│       └── database_erd.jpeg
 │
 ├── PLG_Analytics_Report.pdf
 ├── requirements.txt
